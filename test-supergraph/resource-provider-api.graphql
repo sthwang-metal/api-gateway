@@ -1,0 +1,45 @@
+directive @prefixedID(prefix: String!) on OBJECT
+interface MetadataNode {
+	id: ID!
+}
+interface Node {
+	id: ID!
+}
+interface StatusOwner {
+	id: ID!
+}
+type Query {
+	resourceProvider(
+		id: ID!
+	): ResourceProvider!
+	_entities(representations: [_Any!]!): [_Entity]!
+	_service: _Service!
+}
+type ResourceProvider implements Node & MetadataNode @key(fields: "id") @prefixedID(prefix: "rsprpro") {
+	id: ID!
+	createdAt: Time!
+	updatedAt: Time!
+	name: String!
+	description: String
+}
+scalar Time
+
+union _Entity = ResourceProvider
+type _Service {
+	sdl: String
+}
+scalar _Any
+
+extend schema
+  @link(
+    url: "https://specs.apollo.dev/federation/v2.3"
+    import: [
+      "@key",
+      "@external",
+      "@shareable",
+      "@tag",
+      "@override",
+      "@inaccessible",
+      "@interfaceObject"
+      ]
+  )

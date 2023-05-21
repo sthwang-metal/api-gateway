@@ -1,0 +1,29 @@
+federation_version: =2.4.3
+subgraphs:
+  tenant-api:
+    routing_url: http://localhost:7902/graphql
+    schema:
+      file: ../../tenant-api/schema.graphql
+  node-resolver:
+    routing_url: http://localhost:7904/graphql
+    schema:
+      file: ../schema.graphql
+  metadata-api:
+    routing_url: http://localhost:7905/query
+    schema:
+      # subgraph_url: http://localhost:7905/query
+      file: ../../metadata-api/schema.graphql
+  resource-provider-api:
+    routing_url: http://localhost:7912/query
+    schema:
+      # subgraph_url: http://localhost:7905/query
+      file: ./resource-provider-api.graphql
+  location-api:
+    routing_url: http://localhost:7906/query
+    schema:
+      file: ../../location-api/schema.graphql
+  # load-balancer-api:
+  #   routing_url: http://localhost:7908/query
+  #   schema:
+  #     # subgraph_url: http://localhost:7906/query
+  #     file: ./load-balancer-api.graphql
