@@ -1,0 +1,115 @@
+directive @prefixedID(prefix: String!) on OBJECT
+type Annotation implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "metaano") {
+  id: ID!
+}
+type AnnotationNamespace implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "metamns") {
+  id: ID!
+}
+type IPAddress implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "ipamipa") {
+  id: ID!
+}
+interface IPAddressable @key(fields: "id") {
+  id: ID!
+}
+type IPBlock implements Node @key(fields: "id") @prefixedID(prefix: "ipamibk") {
+  id: ID!
+}
+type IPBlockType implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "ipamibt") {
+  id: ID!
+}
+type LoadBalancer implements Node & IPAddressable
+  @key(fields: "id")
+  @prefixedID(prefix: "loadbal") {
+  id: ID!
+}
+type LoadBalancerAnnotation implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "loadban") {
+  id: ID!
+}
+type LoadBalancerOrigin implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "loadogn") {
+  id: ID!
+}
+type LoadBalancerPool implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "loadpol") {
+  id: ID!
+}
+type LoadBalancerPort implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "loadprt") {
+  id: ID!
+}
+type LoadBalancerProvider implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "loadpvd") {
+  id: ID!
+}
+type LoadBalancerStatus implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "loadbst") {
+  id: ID!
+}
+type Location implements Node & MetadataNode
+  @key(fields: "id")
+  @prefixedID(prefix: "lctnloc") {
+  id: ID!
+}
+type Metadata implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "metadat") {
+  id: ID!
+}
+interface MetadataNode @key(fields: "id") {
+  id: ID!
+}
+interface Node @key(fields: "id") {
+  id: ID!
+}
+interface ResourceOwner @key(fields: "id") {
+  id: ID!
+}
+type ResourceProvider implements Node & StatusOwner
+  @key(fields: "id")
+  @prefixedID(prefix: "resopro") {
+  id: ID!
+}
+type Status implements Node @key(fields: "id") @prefixedID(prefix: "metasts") {
+  id: ID!
+}
+type StatusNamespace implements Node
+  @key(fields: "id")
+  @prefixedID(prefix: "metasns") {
+  id: ID!
+}
+interface StatusOwner @key(fields: "id") {
+  id: ID!
+}
+type Tenant implements Node & ResourceOwner
+  @key(fields: "id")
+  @prefixedID(prefix: "tnntten") {
+  id: ID!
+}
+extend schema
+  @link(
+    url: "https://specs.apollo.dev/federation/v2.3"
+    import: [
+      "@key"
+      "@external"
+      "@shareable"
+      "@tag"
+      "@override"
+      "@inaccessible"
+      "@interfaceObject"
+    ]
+  )

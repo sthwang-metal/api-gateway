@@ -1,0 +1,9 @@
+get all configs
+
+
+generate node resolver config
+
+spit out all configs to a tmp folder
+generate supergraph with rover
+
+store supergraph and node resolver config files in given paths.

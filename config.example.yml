@@ -1,0 +1,6 @@
+---
+generate:
+  apps:
+    - name: metadata-api
+    - name: location-api
+    - name: tenant-api

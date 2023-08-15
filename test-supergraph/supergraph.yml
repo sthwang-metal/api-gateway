@@ -1,29 +1,30 @@
-federation_version: =2.4.3
+federation_version: =2.4.8
 subgraphs:
-  tenant-api:
-    routing_url: http://localhost:7902/graphql
-    schema:
-      file: ../../tenant-api/schema.graphql
   node-resolver:
-    routing_url: http://localhost:7904/graphql
+    routing_url: http://NEED_NODE_RESOLVER_API_URI/graphql
     schema:
       file: ../schema.graphql
   metadata-api:
-    routing_url: http://localhost:7905/query
+    routing_url: http://NEED_METADATA_API_URI/query
     schema:
-      # subgraph_url: http://localhost:7905/query
       file: ../../metadata-api/schema.graphql
-  resource-provider-api:
-    routing_url: http://localhost:7912/query
+  tenant-api:
+    routing_url: http://NEED_TENANT_API_URI/graphql
     schema:
-      # subgraph_url: http://localhost:7905/query
-      file: ./resource-provider-api.graphql
+      file: ../../tenant-api/schema.graphql
   location-api:
-    routing_url: http://localhost:7906/query
+    routing_url: http://NEED_LOCATION_API_URI/query
     schema:
       file: ../../location-api/schema.graphql
-  # load-balancer-api:
-  #   routing_url: http://localhost:7908/query
-  #   schema:
-  #     # subgraph_url: http://localhost:7906/query
-  #     file: ./load-balancer-api.graphql
+  resource-provider-api:
+    routing_url: http://NEED_RESOURCE_PROVIDER_API_URI:7912/query
+    schema:
+      file: ../../resource-provider-api/schema.graphql
+  load-balancer-api:
+    routing_url: http://NEED_LOAD_BALANCER_API_URI:7912/query
+    schema:
+      file: ../../load-balancer-api/schema.graphql
+  ipam-api:
+    routing_url: http://NEED_IPAM_API_URI:7912/query
+    schema:
+      file: ../../ipam-api/schema.graphql
