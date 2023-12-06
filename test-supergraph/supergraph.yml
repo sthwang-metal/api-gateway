@@ -1,30 +1,34 @@
 federation_version: =2.4.8
 subgraphs:
   node-resolver:
-    routing_url: http://NEED_NODE_RESOLVER_API_URI/graphql
+    routing_url: http://node-resolver.node-resolver.svc.cluster.local/query
     schema:
       file: ../schema.graphql
   metadata-api:
-    routing_url: http://NEED_METADATA_API_URI/query
+    routing_url: http://metadata-api.metadata-api.svc.cluster.local/query
     schema:
       file: ../../metadata-api/schema.graphql
   tenant-api:
-    routing_url: http://NEED_TENANT_API_URI/graphql
+    routing_url: http://tenant-api.tenant-api.svc.cluster.local/query
     schema:
       file: ../../tenant-api/schema.graphql
   location-api:
-    routing_url: http://NEED_LOCATION_API_URI/query
+    routing_url: http://location-api.location-api.svc.cluster.local/query
     schema:
       file: ../../location-api/schema.graphql
   resource-provider-api:
-    routing_url: http://NEED_RESOURCE_PROVIDER_API_URI:7912/query
+    routing_url: http://resource-provider-api.resource-provider-api.svc.cluster.local/query
     schema:
       file: ../../resource-provider-api/schema.graphql
   load-balancer-api:
-    routing_url: http://NEED_LOAD_BALANCER_API_URI:7912/query
+    routing_url: http://load-balancer-api.load-balancer-api.svc.cluster.local/query
     schema:
       file: ../../load-balancer-api/schema.graphql
   ipam-api:
-    routing_url: http://NEED_IPAM_API_URI:7912/query
+    routing_url: http://ipam-api.ipam-api.svc.cluster.local/query
     schema:
       file: ../../ipam-api/schema.graphql
+  resource-owner-directory:
+    routing_url: https://resource-owner-directory.core-a.ny5.metalkube.net/api
+    schema:
+      file: ../../resource-owner-directory/schema.graphql
