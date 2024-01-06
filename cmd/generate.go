@@ -35,6 +35,7 @@ func generate(ctx context.Context) {
 		"../resource-provider-api/schema.graphql",
 		"../load-balancer-api/schema.graphql",
 		"../ipam-api/schema.graphql",
+        "../resource-owner-directory/schema.graphql",
 	} {
 		b, err := os.ReadFile(f)
 		if err != nil {
